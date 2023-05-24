@@ -19,3 +19,16 @@
 ### Datasets
 * Celeb-DF: https://github.com/yuezunli/celeb-deepfakeforensics
 * VoxCeleb: https://www.robots.ox.ac.uk/~vgg/data/voxceleb/
+### Usage
+1. Download dataset from above links
+2. If needed, crop the face using the repo from [ICT](https://github.com/LightDXY/ICT_DeepFake)
+3. Generate training dataset from [FOMM](https://github.com/AliaksandrSiarohin/first-order-model)
+4. Modify the `cfg.yaml` with your paths
+5. Training
+```
+python train.py cfg.yaml
+```
+6. Testing
+```
+python test.py cfg.yaml
+```

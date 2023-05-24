@@ -17,8 +17,6 @@ class MyTrainer(BaseTrainer):
         '''
         self.losses["identity_anchored_loss"] = \
             self.identity_anchored_loss(datas, labels)
-        # trunk_output = self.get_trunk_output(data)
-        # embeddings = self.get_final_embeddings(trunk_output)
         
     def artifact_agnostic_loss(self, anchors, posnegs, labels):
         embeddings = (
@@ -63,15 +61,6 @@ class MyTrainer(BaseTrainer):
             embeddings, labels, indices_tuple
         )
     
-    # def compute_embeddings(self, datas):
-    #     videos = []
-    #     for data in datas:
-    #         videos.append(self.get_trunk_output(data))
-    #     videos = pack_sequence(sequences=videos)
-    #     videos.device = videos.data.device
-    #     embeddings = self.get_final_embeddings(videos)
-    #     return embeddings
-
     def maybe_mine_video_embeddings(self, data, labels):
         return self.mining_funcs["tuple_miner"](data, labels)
 
